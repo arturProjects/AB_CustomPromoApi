@@ -3,8 +3,8 @@
     <table name="ab_custom_promo_promotion" comment="Promotion">
         <column xsi:type="int" name="promotion_id" nullable="false" identity="true" unsigned="true" comment="Promotion ID"/>
         <column xsi:type="varchar" name="promotion_name" length="255" nullable="false" comment="Name of promotion"/>
-        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Date created"/>
-        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date updated"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date created"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Date updated"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="promotion_id"/>
         </constraint>
@@ -15,8 +15,8 @@
     <table name="ab_custom_promo_group" comment="Promotion Group">
         <column xsi:type="int" name="group_id" nullable="false" identity="true" unsigned="true" comment="Group ID"/>
         <column xsi:type="varchar" name="group_name" length="255" nullable="false" comment="Name of group"/>
-        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Date created"/>
-        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date updated"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date created"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Date updated"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="group_id"/>
         </constraint>
