@@ -1,0 +1,37 @@
+{
+    "ab_custom_promo_promotion": {
+        "column": {
+            "promotion_id": true,
+            "promotion_name": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AB_CUSTOM_PROMO_PROMOTION_PROMOTION_NAME": true
+        }
+    },
+    "ab_custom_promo_group": {
+        "column": {
+            "group_id": true,
+            "group_name": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AB_CUSTOM_PROMO_GROUP_GROUP_NAME": true
+        }
+    },
+    "ab_custom_promo_promotion_group": {
+        "column": {
+            "promotion_id": true,
+            "group_id": true
+        },
+        "constraint": {
+            "FK_040C2AF3C44517E66FDD4B4780696CA8": true,
+            "FK_7D8D4D2F04CA99D0298AB6188FDC2F5C": true,
+            "PRIMARY": true
+        }
+    }
+}

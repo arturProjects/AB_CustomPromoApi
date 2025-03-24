@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/etc/schema.xsd">
+    <table name="ab_custom_promo_promotion" comment="Promotion">
+        <column xsi:type="int" name="promotion_id" nullable="false" identity="true" unsigned="true" comment="Promotion ID"/>
+        <column xsi:type="varchar" name="promotion_name" length="255" nullable="false" comment="Name of promotion"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Date created"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date updated"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="promotion_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNQ_AB_CUSTOM_PROMO_PROMOTION_NAME">
+            <column name="promotion_name"/>
+        </constraint>
+    </table>
+    <table name="ab_custom_promo_group" comment="Promotion Group">
+        <column xsi:type="int" name="group_id" nullable="false" identity="true" unsigned="true" comment="Group ID"/>
+        <column xsi:type="varchar" name="group_name" length="255" nullable="false" comment="Name of group"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Date created"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Date updated"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="group_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNQ_AB_CUSTOM_PROMO_GROUP_NAME">
+            <column name="group_name"/>
+        </constraint>
+    </table>
+    <table name="ab_custom_promo_promotion_group" comment="Promotion and Group promotion relations">
+        <column xsi:type="int" name="promotion_id" nullable="false" unsigned="true" comment="Promotion ID"/>
+        <column xsi:type="int" name="group_id" nullable="false" unsigned="true" comment="Group ID"/>
+        <constraint xsi:type="foreign" referenceId="FK_AB_CUSTOM_PROMO_PROMOTION_GROUP_PROMOTION" table="ab_custom_promo_promotion_group" column="promotion_id" referenceTable="ab_custom_promo_promotion" referenceColumn="promotion_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_AB_CUSTOM_PROMO_PROMOTION_GROUP_GROUP" table="ab_custom_promo_promotion_group" column="group_id" referenceTable="ab_custom_promo_group" referenceColumn="group_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="promotion_id"/>
+            <column name="group_id"/>
+        </constraint>
+    </table>
+</schema>
