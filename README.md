@@ -8,6 +8,8 @@
     bin/magento setup:di:compile
     bin/magento cache:flush
    ```
+3. The module was programmed and tested on a magento 2.4.7-p3 CE instance.
+   The magento instance was run in a Docker environment.
 
 ## Rest API call examples:
 RestApi endpoints:
